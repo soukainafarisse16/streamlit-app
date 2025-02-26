@@ -10,7 +10,7 @@ import openai
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-
+POPPLER_PATH = r"C:\Users\sfarisse\poppler-24.08.0-0\poppler-24.08.0\Library\bin"
 
 # Set up Streamlit app
 st.set_page_config(page_title="PDF to Excel Converter", page_icon="📄", layout="wide")
@@ -22,7 +22,8 @@ if os.name == "nt":
 
 # Function to extract text from PDF
 def extract_text_from_pdf(pdf_file):
-    pages = convert_from_bytes(pdf_file.read())
+    pages = convert_from_bytes(pdf_file.read(), poppler_path=POPPLER_PATH)
+    #pages = convert_from_bytes(pdf_file.read())
     text = ""
     for i, page in enumerate(pages):
         page_text = image_to_string(page)
