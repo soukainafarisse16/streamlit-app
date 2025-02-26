@@ -1,0 +1,11 @@
+# System dependencies for Render
+apt-get update && apt-get install -y tesseract-ocr poppler-utils
+streamlit
+pandas
+pytesseract
+pdf2image
+openai
+pillow
+numpy
+requests
+xlsxwriter

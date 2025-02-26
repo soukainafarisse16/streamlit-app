@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: streamlit-app
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: "./setup.sh && pip install -r requirements.txt"
+    startCommand: "streamlit run app2.py --server.port 8000 --server.enableCORS false --server.enableXsrfProtection false"
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
