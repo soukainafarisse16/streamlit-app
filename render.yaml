@@ -1,10 +1,11 @@
 services:
   - type: web
     name: streamlit-app
-    env: python
+    env: docker
     plan: free
-    buildCommand: "./render-build.sh && pip install -r requirements.txt"
-    startCommand: "streamlit run app.py --server.port 8000 --server.enableCORS false --server.enableXsrfProtection false"
+    repo: https://github.com/soukainafarisse16/streamlit-app.git
+    branch: main
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: OPENAI_API_KEY
         sync: false
